@@ -14,7 +14,9 @@ const Navbar = () => {
             <FaBars />
           </button>
         </div>
-        { showLinks && <div className="links-container show-container">
+
+        {/* First way  */}
+        {/* { showLinks && <div className="links-container show-container">
           <ul className="links">
             {links.map((link) => {
               const {id, url, text} = link
@@ -26,7 +28,21 @@ const Navbar = () => {
             })}
           </ul>
         </div>
-        }
+        } */}
+
+        {/* Second Way */}
+        <div className={`${showLinks ? "links-container show-container" : "links-container"}`}>
+          <ul className="links">
+            {links.map((link) => {
+              const {id, url, text} = link
+              return (
+                <li key={id}>
+                  <a href={url}>{text}</a>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
         <ul className="social-icons">
         {social.map((link) => {
               const {id, url, icon} = link
